@@ -1,0 +1,128 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #131921;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-wrap: wrap;
+  padding: 0 30px 0 10px;
+}
+.header__logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 8px;
+}
+.header__search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+  margin-right: 10px;
+}
+.header__searchInput {
+  width: 100%;
+  padding: 5px;
+  padding-left: 10px;
+  height: 22px !important;
+  outline: none;
+  border: none;
+}
+.header__searchIcon {
+  padding: 5px;
+  height: 22px !important;
+  background-color: #febd69;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #fff;
+}
+.header__navOptions {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.header__navOptions:hover {
+  color: #febd69;
+}
+.header__navOptionRowOne {
+  font-size: 12px;
+}
+.header__navOptionRowTwo {
+  font-weight: 600;
+}
+.header__navBasket {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  cursor: pointer;
+  margin-top: 14px;
+}
+.header__navBasket:hover .header__navBasketIcon {
+  color: #febd69;
+}
+.header__navBasketIcon {
+  transition: color 0.3s !important;
+  font-size: 28px !important;
+  color: #fff !important;
+}
+.header__navNumber {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+.header__burger {
+  margin-left: 10px;
+  margin-bottom: -18px !important;
+  font-size: 35px !important;
+  cursor: pointer;
+  color: white !important;
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    height: 100px;
+    position: sticky;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px 18px;
+  }
+  .header__search {
+    position: absolute;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60%;
+  }
+  .header__logo {
+    align-self: none;
+    margin-top: 17px;
+  }
+}
+@media only screen and (min-width: 520px) {
+  .header__navBurger {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .header__navOptions{
+    display: none;
+  }
+  .header__navBasket {
+    margin-top: 14px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .header__navOptions {
+    display: none;
+  }
+  .header__navBasket {
+    margin-top: 14px;
+  }
+}
