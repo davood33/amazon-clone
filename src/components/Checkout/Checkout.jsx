@@ -2,8 +2,8 @@ import React from "react";
 import "./Checkout.css";
 import Basketitem from "./BasketItem/BasketItem";
 import { useSelector } from "react-redux";
+import Subtotal from './Subtotal/Subtotal';
 const Checkout = () => {
-  const totalPrice = 26567.23;
   const basket = useSelector((state) => state.basket);
   return (
     <div className="checkout">
@@ -34,7 +34,7 @@ const Checkout = () => {
       <div className="checkout__right">
         <p>
           Subtotal ({basket.length} item) :{" "}
-          <strong style={{ marginLeft: "5px" }}>${totalPrice}</strong>
+          <Subtotal/>
         </p>
         <p className="checkout__giftText">
           <input

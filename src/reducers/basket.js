@@ -20,6 +20,7 @@ const basketReducer = (state, action) => {
         };
       }
 
+      break;
     default:
       return state;
   }
