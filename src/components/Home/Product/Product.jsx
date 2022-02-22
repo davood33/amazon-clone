@@ -1,7 +1,13 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import "./Product.css";
-const Product = ({id, title, image, price, rating }) => {
+import { useDispatch } from "react-redux";
+import addToBasket from "./../../../actions/addToBasket";
+const Product = ({ id, title, image, price, rating }) => {
+  const dispatch = useDispatch();
+  const AddToBasket = () => {
+    dispatch(addToBasket(id, title, image, price, rating));
+  };
   const image_height = title.length >= 100 ? "180px" : "200px";
   const margin_top = title.length >= 100 ? "40px" : "20px";
   return (
@@ -25,7 +31,7 @@ const Product = ({id, title, image, price, rating }) => {
         className="product__image"
         style={{ maxHeight: image_height, marginTop: margin_top }}
       />
-      <button className="product__addToBasket">
+      <button onClick={AddToBasket} className="product__addToBasket">
         Add to basket
       </button>
     </div>

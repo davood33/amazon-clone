@@ -1,9 +1,10 @@
 import React from "react";
 import "./Checkout.css";
 import Basketitem from "./BasketItem/BasketItem";
+import { useSelector } from "react-redux";
 const Checkout = () => {
   const totalPrice = 26567.23;
-  const number = 9;
+  const basket = useSelector((state) => state.basket);
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -13,17 +14,26 @@ const Checkout = () => {
           className="checkout__ad"
         />
         <h2 className="checkout__title">Your Shopping Basket</h2>
-        <Basketitem
-          id="12321341"
-          title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-          price={11.96}
-          rating={5}
-          image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
-        />
+        {basket.length !== 0 ? (
+          basket.map(item => {
+            return (
+              <Basketitem
+              key={Math.floor(Math.random()*1000)}
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+              />
+            );
+          })
+        ) : (
+          <h3>Nothing in your basket</h3>
+        )}
       </div>
       <div className="checkout__right">
         <p>
-          Subtotal ({number} item) :{" "}
+          Subtotal ({basket.length} item) :{" "}
           <strong style={{ marginLeft: "5px" }}>${totalPrice}</strong>
         </p>
         <p className="checkout__giftText">

@@ -4,8 +4,9 @@ import "./Header.css";
 import { Badge } from "@mui/material";
 import TemporaryDrawer from "./Drawer/Drawer";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
-  const number=0;
+  const basket = useSelector(state=>state.basket)
   return (
     <div className="header">
       <Link to={"/"}>
@@ -33,7 +34,7 @@ const Header = () => {
           <span className="header__navOptionRowTwo">Prime</span>
         </div>
         <div className="header__navBasket">
-          <Badge showZero badgeContent={number} color="primary">
+          <Badge showZero badgeContent={basket.length} color="primary">
             <Link to="/checkout">
               <ShoppingBasketIcon className="header__navBasketIcon" />
             </Link>
