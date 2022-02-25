@@ -3,3 +3,7 @@
     margin-left: auto;
     max-width: 1350px;
 }
+a{
+    color: unset;
+    text-decoration: none;
+}

@@ -6,11 +6,15 @@ import TemporaryDrawer from "./Drawer/Drawer";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Header = () => {
-  const basket = useSelector(state=>state.basket)
+  const basket = useSelector((state) => state.basket);
   return (
     <div className="header">
       <Link to={"/"}>
-        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" className="header__logo" />
+        <img
+          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt=""
+          className="header__logo"
+        />
       </Link>
       <div className="header__search">
         <input
@@ -23,7 +27,9 @@ const Header = () => {
       <div className="header__nav">
         <div className="header__navOptions">
           <span className="header__navOptionRowOne">Hello Guest</span>
-          <span className="header__navOptionRowTwo">Sign in</span>
+          <Link to={"/login"}>
+            <span className="header__navOptionRowTwo">Sign in</span>
+          </Link>
         </div>
         <div className="header__navOptions">
           <span className="header__navOptionRowOne">Returns</span>
